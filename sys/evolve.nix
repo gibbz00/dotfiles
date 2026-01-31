@@ -1,4 +1,4 @@
-{ pkgs, extraArgs, ... }:
+{ pkgs, ... }:
 let
   rootPassword = "test";
   hostSshKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAZLVfPatp7YOYiWAmpDMibN9CNLCmqEOhWZ8bsqvENa gibbz@evolve-leissner";
@@ -32,5 +32,5 @@ in
     "flakes"
   ];
 
-  system.stateVersion = extraArgs.stateVersion;
+  system.stateVersion = "25.11";
 }

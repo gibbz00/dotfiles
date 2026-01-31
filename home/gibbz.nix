@@ -1,13 +1,8 @@
-{
-  config,
-  pkgs,
-  extraArgs,
-  ...
-}:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     cowsay
   ];
 
-  home.stateVersion = extraArgs.stateVersion;
+  home.stateVersion = "25.11";
 }
