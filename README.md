@@ -1,22 +1,31 @@
 # Gibbz's NixOS dotfiles
 
-## Switching from a flake enabled NixOS host
+## Hosts
 
-`my-host` needs to match one of the hosts in this repo's `flake.nix`.
+`flake.nix` contains the following nixosConfiguration hosts:
+
+| Host   | Description                         |
+|:--     |:--:                                 |
+| evolve | Full desktop installation (GUI+TUI) |
+
+## Usage
+
+### Switching from a flake enabled NixOS host
+
+`selected-host` needs to match one of the hosts listed above.
 
 ```sh
-sudo nixos-rebuild switch --flake github:owner/repo#my-host
+sudo nixos-rebuild switch --flake github:owner/repo#selected-host
 ```
 
-
-## Running them inside QEMU
+### Running them inside QEMU
 
 QEMU and nix needs to first be installed on the host, the latter one with [with flakes enabled](https://nixos.wiki/wiki/Flakes).
 
-To build a QEMU image for a `my-host` configuration in `flake.nix`:
+To build a QEMU image for a `selected-host` configuration in `flake.nix`:
 
 ```sh
-nix build .#nixosConfigurations.my-host.config.system.build.vm
+nix build .#nixosConfigurations.selected-host.config.system.build.vm
 ```
 
 The built VM image can then be started with:
