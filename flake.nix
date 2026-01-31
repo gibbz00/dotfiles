@@ -8,35 +8,23 @@
   };
 
   outputs =
-    {
+    inputs@{
       self,
       nixpkgs,
-      home-manager,
       ...
     }:
     {
-      nixosConfigurations =
-        let
-          host = "evolve";
-          user = "gibbz";
+      nixosConfigurations = {
+        evolve = nixpkgs.lib.nixosSystem {
+          # TEMP: later part of hardware confiuration
           system = "x86_64-linux";
-        in
-        {
-          ${host} = nixpkgs.lib.nixosSystem {
-            inherit system;
-            modules = [
-              ./sys/${host}.nix
+          modules = [
+            ./nixos-config
+            ./nixos-config/hosts/evolve.nix
+          ];
 
-              home-manager.nixosModules.home-manager
-              {
-                home-manager = {
-                  useGlobalPkgs = true;
-                  useUserPackages = true;
-                  users.${user} = import ./home/${user}.nix;
-                };
-              }
-            ];
-          };
+          specialArgs.flake-inputs = inputs;
         };
+      };
     };
 }

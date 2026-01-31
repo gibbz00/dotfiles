@@ -1,9 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, flake-inputs, ... }:
 let
   rootPassword = "test";
   hostSshKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAZLVfPatp7YOYiWAmpDMibN9CNLCmqEOhWZ8bsqvENa gibbz@evolve-leissner";
 in
 {
+  users.users.gibbz.isNormalUser = true;
+  home-manager.users.gibbz = import "${flake-inputs.self}/home-config/users/gibbz.nix";
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -11,9 +14,6 @@ in
     initialPassword = rootPassword;
     openssh.authorizedKeys.keys = [ hostSshKey ];
   };
-
-  # FIXME: separate from pure sys configuration
-  users.users.gibbz.isNormalUser = true;
 
   services.openssh = {
     enable = true;
