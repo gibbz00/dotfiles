@@ -18,8 +18,10 @@ in
   };
 
   environment.systemPackages = with pkgs; [
-    vim
+    helix
   ];
+
+  environment.variables.EDITOR = "hx";
 
   nix.settings.experimental-features = [
     "nix-command"
