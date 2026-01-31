@@ -1,22 +1,16 @@
 # Nixos QEMU setup:
 
-## Installing Nix
+## Building an image
 
-Nix needs to be installed, with the 25.11 channel added:
+Nix needs to first be installed, [with flakes enabled](https://nixos.wiki/wiki/Flakes).
 
-```sh
-nix-channel --add https://nixos.org/channels/nixos-25.05
-```
-
-## Building image
-
-To build the qemu image:
+To build the qemu image from `flake.nix`:
 
 ```sh
-nix-build '<nixpkgs/nixos>' -A vm -I nixpkgs=channel:nixos-25.11 -I nixos-config=./configuration.nix
+nix build .#nixosConfigurations.my-host.config.system.build.vm
 ```
 
-## Running VM
+## Running the VM
 
 To run the qemu image:
 
