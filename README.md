@@ -8,14 +8,21 @@
 |:--     |:--:                                 |
 | evolve | Full desktop installation (GUI+TUI) |
 
-## Usage
+## Setup
 
-### Switching from a flake enabled NixOS host
+### Switching from a already flake enabled NixOS host
 
-`selected-host` needs to match one of the hosts listed above.
+`selected-host` needs to match one of the hosts listed above. Flake can be fetched remotely:
 
 ```sh
 sudo nixos-rebuild switch --flake github:owner/repo#selected-host
+```
+
+Or if already present in the system:
+
+```sh
+# in directory where flake.nix is located
+sudo nixos-rebuild switch --flake .
 ```
 
 ### Running them inside QEMU
