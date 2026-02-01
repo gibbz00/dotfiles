@@ -19,7 +19,7 @@
           # TEMP: later part of hardware confiuration
           system = "x86_64-linux";
           modules = [
-            ./nixos-config
+            ./nixos-config/base.nix
             ./nixos-config/hosts/evolve.nix
           ];
 
