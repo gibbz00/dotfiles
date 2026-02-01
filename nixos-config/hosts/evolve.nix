@@ -7,15 +7,16 @@ let
 
 in
 {
+  imports = [
+    ../uefi-bootloader.nix
+  ];
+
   users.users.gibbz = {
     isNormalUser = true;
     initialHashedPassword = userPassword;
   };
 
   home-manager.users.gibbz = import "${flake-inputs.self}/home-config/users/gibbz.nix";
-
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   users.users.root = {
     initialHashedPassword = rootPassword;
