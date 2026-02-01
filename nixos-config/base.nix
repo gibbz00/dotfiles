@@ -14,4 +14,10 @@
       inherit flake-inputs;
     };
   };
+
+  ## Nix settings and optimizations
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 }
