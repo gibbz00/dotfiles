@@ -1,5 +1,9 @@
 { pkgs, ... }:
 {
+  imports = [
+    ../nordic-locale.nix
+  ];
+
   home.packages = with pkgs; [
   ];
 
