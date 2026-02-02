@@ -17,11 +17,6 @@
     initialHashedPassword = "$y$j9T$1m20HcCl7Np8K4xtVkhFP1$m.p7mrYKVn6qrc2pH4OoCRr0E5bg2N3Aq5KgaIApwG1";
   };
 
-  services.openssh = {
-    enable = true;
-    openFirewall = true;
-  };
-
   environment.systemPackages = with pkgs; [
     git
     helix
