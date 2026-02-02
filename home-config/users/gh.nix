@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    ../nordic-locale.nix
+    ../tui
   ];
 
   home.packages = with pkgs; [
