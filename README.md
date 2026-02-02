@@ -1,13 +1,5 @@
 # Gibbz's NixOS dotfiles
 
-## Hosts
-
-`flake.nix` contains the following nixosConfiguration hosts:
-
-| Host   | Description                         |
-|:--     |:--:                                 |
-| evolve | Full desktop installation (GUI+TUI) |
-
 ## Stack
 
 - `iwd` for wireless network management.
@@ -15,11 +7,16 @@
 - `openssh.nix` module enables Fail2ban
 - `docker.nix` module with aggressive auto pruning enabled
 
+### Other Notes
+
+- `wheelNeedsPassword` is set to `false` in the `base.nix` module, take care when adding new users.
+
+
 ## Setup
 
 ### Switching from a already flake enabled NixOS host
 
-`selected-host` needs to match one of the hosts listed above. Flake can be fetched remotely:
+`selected-host` needs to match one of the hosts listed in the `flake.nix`. Flake can be fetched remotely:
 
 ```sh
 sudo nixos-rebuild switch --flake github:owner/repo#selected-host

@@ -8,12 +8,18 @@
     (import ../normal-user.nix {
       userName = "gibbz";
       hashedPassword = "$y$j9T$MQXA5mg/uXaH3CvJ0i1qP/$llbGFH50xgXPB2Qe7HE.Q0xDOrRxmPEPa0Ka97nt5R9";
-      extraGroups = [ "docker" ];
+      extraGroups = [
+        "docker"
+        "wheel"
+      ];
     })
     (import ../normal-user.nix {
       userName = "gh";
       hashedPassword = "$y$j9T$H9jWdmKveSuHjcTUk/B5b/$RSRUkln89GzuA3YCSaAClbuR/T3jKvPphthTNSlQts5";
-      extraGroups = [ "docker" ];
+      extraGroups = [
+        "docker"
+        "wheel"
+      ];
     })
   ];
 
