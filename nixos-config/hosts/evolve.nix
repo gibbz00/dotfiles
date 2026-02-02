@@ -17,12 +17,5 @@
     initialHashedPassword = "$y$j9T$1m20HcCl7Np8K4xtVkhFP1$m.p7mrYKVn6qrc2pH4OoCRr0E5bg2N3Aq5KgaIApwG1";
   };
 
-  environment.systemPackages = with pkgs; [
-    git
-    helix
-  ];
-
-  environment.variables.EDITOR = "hx";
-
   system.stateVersion = "25.11";
 }

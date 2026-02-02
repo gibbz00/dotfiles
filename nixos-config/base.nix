@@ -1,4 +1,5 @@
 {
+  pkgs,
   flake-inputs,
   ...
 }:
@@ -7,8 +8,22 @@
     flake-inputs.home-manager.nixosModules.home-manager
   ];
 
+  ## NTP
   # See: https://discourse.nixos.org/t/why-are-we-using-systemd-timesyncd-by-default/74052/22
   services.ntpd-rs.enable = true;
+
+  ## System packages
+  # TODO: default core packages are also pretty bloated IMO
+  # environment.corePackages = [ ];
+  environment.defaultPackages = [ ];
+  environment.variables.EDITOR = "hx";
+  environment.systemPackages = with pkgs; [
+    git
+    tree
+    fd
+    ripgrep
+    helix
+  ];
 
   home-manager = {
     useGlobalPkgs = true;
