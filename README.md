@@ -12,6 +12,7 @@
 
 - `iwd` for wireless network management.
 - `ntpd-rs` for NTP management.
+- `openssh.nix` module enables Fail2ban
 
 ## Setup
 

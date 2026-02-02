@@ -6,4 +6,6 @@
       PermitRootLogin = "no";
     };
   };
+
+  services.fail2ban.enable = true;
 }
