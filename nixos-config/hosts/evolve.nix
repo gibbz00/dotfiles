@@ -1,26 +1,19 @@
 { pkgs, flake-inputs, ... }:
-let
-  hostSshKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAZLVfPatp7YOYiWAmpDMibN9CNLCmqEOhWZ8bsqvENa gibbz@evolve-leissner";
-  # Generated with `mkpasswd`
-  rootPassword = "$y$j9T$1m20HcCl7Np8K4xtVkhFP1$m.p7mrYKVn6qrc2pH4OoCRr0E5bg2N3Aq5KgaIApwG1";
-  userPassword = "$y$j9T$J6DE/phOFME5IrDONaOo41$rpBvbN.VtwJyWDZCf4hOSmNl6MVRiIkH58rl6xaSRg2";
-
-in
 {
   imports = [
     ../uefi-bootloader.nix
+    (import ../normal-user.nix {
+      userName = "gibbz";
+      hashedPassword = "$y$j9T$MQXA5mg/uXaH3CvJ0i1qP/$llbGFH50xgXPB2Qe7HE.Q0xDOrRxmPEPa0Ka97nt5R9";
+    })
+    (import ../normal-user.nix {
+      userName = "gh";
+      hashedPassword = "$y$j9T$H9jWdmKveSuHjcTUk/B5b/$RSRUkln89GzuA3YCSaAClbuR/T3jKvPphthTNSlQts5";
+    })
   ];
 
-  users.users.gibbz = {
-    isNormalUser = true;
-    initialHashedPassword = userPassword;
-  };
-
-  home-manager.users.gibbz = import "${flake-inputs.self}/home-config/users/gibbz.nix";
-
   users.users.root = {
-    initialHashedPassword = rootPassword;
-    openssh.authorizedKeys.keys = [ hostSshKey ];
+    initialHashedPassword = "$y$j9T$1m20HcCl7Np8K4xtVkhFP1$m.p7mrYKVn6qrc2pH4OoCRr0E5bg2N3Aq5KgaIApwG1";
   };
 
   services.openssh = {
