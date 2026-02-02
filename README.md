@@ -8,6 +8,11 @@
 |:--     |:--:                                 |
 | evolve | Full desktop installation (GUI+TUI) |
 
+## Stack
+
+- `iwd` for wireless network management.
+- `ntpd-rs` for NTP management.
+
 ## Setup
 
 ### Switching from a already flake enabled NixOS host
