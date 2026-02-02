@@ -15,7 +15,7 @@
 
 ### Home
 
-- XDG base directory specification adherence on a best effort basis.
+- XDG base directory specification adherence (on a best effort basis).
 - XDG user directories (all in lowercase).
 
 ## Setup
