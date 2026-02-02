@@ -2,15 +2,20 @@
 
 ## Stack
 
+### System
+
 - `iwd` for wireless network management.
 - `ntpd-rs` for NTP management.
 - `openssh.nix` module enables Fail2ban
 - `docker.nix` module with aggressive auto pruning enabled
 
-### Other Notes
+#### Other Notes
 
 - `wheelNeedsPassword` is set to `false` in the `base.nix` module, take care when adding new users.
 
+### Home
+
+- Adherence to the XDG Base Directory Specification on a best effort basis.
 
 ## Setup
 
