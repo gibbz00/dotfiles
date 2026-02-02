@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 {
   imports = [
     ./readline.nix
@@ -7,6 +7,19 @@
 
   # XDG base directory spec adherence
   xdg.enable = true;
-  xdg.cacheHome = "~/.local/cache";
+  xdg.cacheHome = "${config.home.homeDirectory}/.local/cache";
   home.preferXdgDirectories = true;
+
+  # XDG user directories
+  xdg.userDirs = {
+    enable = true;
+    desktop = "desktop";
+    documents = "documents";
+    download = "downloads";
+    music = "music";
+    pictures = "pictures";
+    publicShare = "public";
+    templates = "templates";
+    videos = "videos";
+  };
 }
