@@ -29,14 +29,15 @@
   # XDG user directories
   xdg.userDirs = {
     enable = true;
-    desktop = "desktop";
-    documents = "documents";
     download = "downloads";
-    music = "music";
-    pictures = "pictures";
-    publicShare = "public";
-    templates = "templates";
-    videos = "videos";
+    documents = "documents";
+    music = "${config.xdg.userDirs.documents}/music";
+    pictures = "${config.xdg.userDirs.documents}/pictures";
+    publicShare = "${config.xdg.userDirs.documents}/public";
+    templates = "${config.xdg.userDirs.documents}/templates";
+    videos = "${config.xdg.userDirs.documents}/videos";
+    # WORKAROUND: firefox attempting to create a desktop directory
+    desktop = "${config.home.homeDirectory}";
   };
 
   home.packages = with pkgs; [
