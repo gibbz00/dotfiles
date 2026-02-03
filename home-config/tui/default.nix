@@ -11,11 +11,6 @@
     enable = true;
   };
 
-  home.sessionVariables = {
-    # TEMP: some terminals do not advertise true color support, even if it is supported
-    COLORTERM = "truecolor";
-  };
-
   home.language = {
     base = "en_US.UTF-8";
     measurement = "sv_SE.UTF-8";

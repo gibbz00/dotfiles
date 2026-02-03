@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   programs.helix = {
     enable = true;
@@ -9,6 +9,7 @@
       theme = 'ayu_evolve'
 
       [editor]
+      true-color = true
       line-number = "relative"
       idle-timeout = 0
       completion-trigger-len = 1
@@ -259,6 +260,46 @@
       ignore = true
       git-global = false
       git-exclude = false
+    '';
+    extraPackages = with pkgs; [
+      marksman
+      nixfmt
+      rust-analyzer
+      simple-completion-language-server
+      taplo
+      typos-lsp
+    ];
+    languages = builtins.fromTOML ''
+      [language-server]
+      scls = { command = "simple-completion-language-server", config = { max_completion_items = 10, feature_words = false } }
+      typos-lsp = { command = "typos-lsp" }
+
+      [language-server.rust-analyzer.config]
+      check.command = "clippy"
+      cargo.features = "all"
+      diagnostics.disabled = ["inactive-code"]
+
+      [[language]]
+      name = "nix"
+      formatter = { command = "nixfmt" }
+      auto-format = true
+
+      [[language]]
+      name = "toml"
+      auto-format = true
+      language-servers = ["taplo", "typos-lsp"]
+
+      [[language]]
+      name = "markdown"
+      language-servers = ["marksman", "typos-lsp"]
+
+      [[language]]
+      name = "git-commit"
+      language-servers = ["typos-lsp"]
+
+      [[language]]
+      name = "rust"
+      language-servers = ["rust-analyzer", "typos-lsp", "scls"]
     '';
   };
 }
