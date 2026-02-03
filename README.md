@@ -19,10 +19,11 @@
 
 - XDG base directory specification adherence (on a best effort basis).
 - XDG user directories (all in lowercase).
-- `readline` with vi-mode and responsive completion settings
-- `bash` with immediate history settings
-- `zoxide` for directory jumping
+- `readline` with vi-mode and responsive completion settings.
+- `bash` with immediate history settings.
 - `fzf` enabled using `fd` as backend.
+- `zoxide` for directory jumping (using `fzf` for interactive select).
+- `yazi` with a shell-wrapper mapped to `yy` (integrated in turn with `fd`, `ripgrep`, `zoxide` and `fzf`).
 
 ## Setup
 

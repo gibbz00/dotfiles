@@ -35,6 +35,7 @@
     desktop = "${config.home.homeDirectory}";
   };
 
+  ## Base Programs
   home.packages = with pkgs; [
     ouch
     fd
@@ -53,5 +54,13 @@
     enable = true;
     fileWidgetCommand = "fd --type f --hidden --follow --exclude .git";
     changeDirWidgetCommand = "fd --type d --hidden --follow --exclude .git";
+  };
+  programs.yazi = {
+    enable = true;
+    settings = {
+      mgr = {
+        show_hidden = true;
+      };
+    };
   };
 }
