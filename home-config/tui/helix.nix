@@ -1,0 +1,264 @@
+{ ... }:
+{
+  programs.helix = {
+    enable = true;
+    defaultEditor = true;
+    extraConfig = ''
+      # Commands can be found at
+      # https://docs.helix-editor.com/configuration.html
+      theme = 'ayu_evolve'
+
+      [editor]
+      line-number = "relative"
+      idle-timeout = 0
+      completion-trigger-len = 1
+      scrolloff = 0
+      bufferline = "always"
+      inline-diagnostics.cursor-line = "hint"
+
+      [editor.lsp]
+      auto-signature-help = false
+
+      [editor.statusline]
+      # Mode does not need to be shown as the evolve theme indicates it
+      # with the cursor color instead.
+      left = ["file-name", "position-percentage"]
+      right = ["spinner", "diagnostics", "position"]
+
+      [keys.normal]
+      X = "extend_line_above"
+      D = "delete_char_backward"
+      "home" = ["select_mode", "goto_first_nonwhitespace", "exit_select_mode"]
+      "end" = "extend_to_line_end"
+      "0" = "extend_to_line_start"
+      "esc" = "collapse_selection"
+
+      "pagedown" = "goto_next_buffer"
+      "pageup" = "goto_previous_buffer"
+
+      # Prefer to just use space+w
+      C-w = ":toggle soft-wrap.enable"
+
+      # Tree-sitter aware movements
+      "C-up" = "expand_selection"
+      "C-down" = "shrink_selection"
+      "C-left" = "select_prev_sibling"
+      "C-right" = "select_next_sibling"
+
+      # Overrides delete_selection_noyank
+      A-d = ":reset-diff-change"
+      A-i = ":toggle-option lsp.display-inlay-hints"
+      A-r = ":reflow"
+
+      "A-o" = "no_op"
+      "A-up" = "no_op"
+      "A-down" = "no_op"
+      "A-p" = "no_op"
+      "A-left" = "no_op"
+      "A-n" = "no_op"
+      "A-right" = "no_op"
+      "A-y" = "yank_joined"
+
+      # h, j, k, l don't make much sense with Borne Keyboard
+      h = "no_op"
+      j = [
+        "join_selections_space",
+        "delete_selection",
+        "goto_first_nonwhitespace",
+        "extend_to_line_end",
+      ]
+      k = "no_op"
+      l = "flip_selections"
+      # Rededundant when I also have easy access to page up/down
+      C-b = "no_op"
+      C-f = "no_op"
+
+      ### INSERT
+      [keys.insert]
+      # layer below tab on my keyboard, and I still have easy access to delete for char_delete_forward
+      "C-d" = "completion"
+
+      ### SELECT
+      [keys.select]
+      "pagedown" = "goto_next_buffer"
+      "pageup" = "goto_previous_buffer"
+      X = "extend_line_above"
+      "home" = "goto_first_nonwhitespace"
+      "C-up" = "expand_selection"
+      "C-down" = "shrink_selection"
+      # "C-left" = "extend_prev_sibling"
+      # "C-right" = "extend_next_sibling"
+      # Prefer to just use space+w
+      C-w = "no_op"
+      # h, j, k, l Not needed when using the Borne Keyboard
+      h = "no_op"
+      j = "no_op"
+      k = "no_op"
+      l = "flip_selections"
+      "A-o" = "no_op"
+      "A-up" = "no_op"
+      "A-i" = "no_op"
+      "A-down" = "no_op"
+      "A-p" = "no_op"
+      "A-left" = "no_op"
+      "A-n" = "no_op"
+      "A-right" = "no_op"
+
+      ### GLOBAL/GOTO
+      [keys.select.g]
+      e = "extend_to_file_end"
+
+      [keys.normal.g]
+      # Movements that put cursor in akward position relative to scroll
+      # Depends on https://github.com/helix-editor/helix/pull/5635
+      # g = { description = "Goto file start", exec = ["goto_file_start", "align_view_center"]}
+      # e = { description = "Goto file end", exec = ["goto_last_line", "goto_line_end_newline"]}
+      # "." = { description = "Goto last edit", exec = ["goto_last_modification", "align_view_center"]}
+      g = ["goto_file_start", "align_view_center"]
+      "." = ["goto_last_modification", "align_view_center"]
+
+      # gs replaced by normal "home"
+      s = "no_op"
+      # gh replaced by normal "0"
+      h = "no_op"
+      j = "no_op"
+      k = "no_op"
+      # using normal "end" instead
+      l = "no_op"
+      # Prefer to use number + arrows instead
+      t = "no_op"
+      c = "no_op"
+      b = "no_op"
+      n = "no_op"
+      p = "no_op"
+
+      ### LEADER
+      [keys.normal.space]
+      "=" = ":format"
+      "up" = "add_newline_above"
+      "down" = "add_newline_below"
+      C-s = [
+        "split_selection_on_newline",
+        ":sort",
+        "collapse_selection",
+        "keep_primary_selection",
+      ]
+      # Git Blame
+      A-b = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
+
+      # Depends on https://github.com/helix-editor/helix/pull/5635
+      # [keys.normal.space.space]
+      # description = "Write to disk"
+      # exec = ":write"
+      "space" = ":write"
+
+      ### NEXT
+      [keys.normal."]"]
+      "space" = "no_op"
+      ### PREVIOUS
+      [keys.normal."["]
+      "space" = "no_op"
+
+      ### WINDOW
+      [keys.normal.space.w]
+      # Swap as I prefer vsplit
+      F = "goto_file_hsplit"
+      f = "goto_file_vsplit"
+      # Having o as a nemonic for 'close all except this one' is confusing  given that  :o opens a file
+      o = "no_op"
+      Q = "wonly"
+      # Closing a window with q does not close the butter
+      b = ":buffer-close"
+      B = ":buffer-close-others"
+      A-b = ":buffer-close-all"
+      C-b = ":buffer-close!"
+
+      # Why use C-key when key is available?
+      C-o = "no_op"
+      C-q = ":q!"
+      C-h = "no_op"
+      C-j = "no_op"
+      C-k = "no_op"
+      C-l = "no_op"
+      C-w = "no_op"
+      C-s = "no_op"
+      C-v = "no_op"
+      C-t = "no_op"
+      # Add arrowkey options for the shifted hjkl
+      "C-left" = "swap_view_left"
+      "C-down" = "swap_view_down"
+      "C-up" = "swap_view_up"
+      "C-right" = "swap_view_right"
+
+      # Since h, j, k, l don't make much sense when using the Borne Keyboard
+      j = "no_op"
+      k = "no_op"
+      l = "no_op"
+      H = "no_op"
+      J = "no_op"
+      K = "no_op"
+      L = "no_op"
+      # Easier to remember, besides; there is no such thing as :split
+      h = "hsplit" # replaces s
+      s = "no_op"
+
+      [keys.normal.space.w.n]
+      h = "hsplit_new"
+      s = "no_op"
+      # Why use C-key when key is available?
+      C-s = "no_op"
+      C-v = "no_op"
+
+      ###VIEW
+      [keys.normal.z]
+      # Prefer zz
+      c = "no_op"
+      # Have arrow keys at my disposal
+      j = "no_op"
+      k = "no_op"
+      # Redundant as they are the same in normal mode
+      "pageup" = "no_op"
+      "pagedown" = "no_op"
+      "space" = "no_op"
+      "backspace" = "no_op"
+      "C-b" = "no_op"
+      "C-f" = "no_op"
+      "C-u" = "no_op"
+      "C-d" = "no_op"
+      "/" = "no_op"
+      "?" = "no_op"
+      "n" = "no_op"
+      "N" = "no_op"
+
+      ### STICKY VIEW
+      [keys.normal.Z]
+      # Prefer Zz
+      c = "no_op"
+      # Have arrow keys at my disposal
+      j = "no_op"
+      k = "no_op"
+      # Redundant as they are the same in normal mode
+      "pageup" = "no_op"
+      "pagedown" = "no_op"
+      "space" = "no_op"
+      "backspace" = "no_op"
+      "C-b" = "no_op"
+      "C-f" = "no_op"
+      "C-u" = "no_op"
+      "C-d" = "no_op"
+      "/" = "no_op"
+      "?" = "no_op"
+      "n" = "no_op"
+      "N" = "no_op"
+
+
+      ### FILE PICKER
+      [editor.file-picker]
+      hidden = false
+      # A .ignore file is currently symlinked in home from helix config folder
+      ignore = true
+      git-global = false
+      git-exclude = false
+    '';
+  };
+}

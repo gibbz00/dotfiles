@@ -2,9 +2,20 @@
 {
   imports = [
     ./readline.nix
+    ./helix.nix
   ];
 
-  ## Locale
+  # TEMP: Interactive shell using bash,
+  # requied for getting home.sessionVariables to work.
+  programs.bash = {
+    enable = true;
+  };
+
+  home.sessionVariables = {
+    # TEMP: some terminals do not advertise true color support, even if it is supported
+    COLORTERM = "truecolor";
+  };
+
   home.language = {
     base = "en_US.UTF-8";
     measurement = "sv_SE.UTF-8";

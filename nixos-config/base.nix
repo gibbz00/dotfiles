@@ -28,6 +28,13 @@
     helix
   ];
 
+  ## Locale
+  # Required for default home.language settings
+  i18n.extraLocales = [
+    "sv_SE.UTF-8/UTF-8"
+    "en_DK.UTF-8/UTF-8"
+  ];
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
