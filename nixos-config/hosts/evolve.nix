@@ -4,6 +4,7 @@
     ../base.nix
     ../uefi-bootloader.nix
     ../wireless-networking.nix
+    ../audio.nix
     ../docker.nix
     (import ../normal-user.nix {
       userName = "gibbz";
