@@ -1,4 +1,4 @@
-{ config, ... }:
+{ pkgs, config, ... }:
 {
   imports = [
     ./readline.nix
@@ -38,4 +38,17 @@
     templates = "templates";
     videos = "videos";
   };
+
+  home.packages = with pkgs; [
+    ouch
+    fd
+    ripgrep
+    tree
+    ## Diagnostics
+    btop
+    mtr
+    pciutils
+    strace
+    usbutils
+  ];
 }

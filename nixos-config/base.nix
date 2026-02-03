@@ -19,13 +19,8 @@
   # TODO: default core packages are also pretty bloated IMO
   # environment.corePackages = [ ];
   environment.defaultPackages = [ ];
-  environment.variables.EDITOR = "hx";
   environment.systemPackages = with pkgs; [
     git
-    tree
-    fd
-    ripgrep
-    helix
   ];
 
   ## Locale
