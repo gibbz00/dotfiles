@@ -302,4 +302,53 @@
       language-servers = ["rust-analyzer", "typos-lsp", "scls"]
     '';
   };
+  xdg.configFile."helix/snippets/rust.json".text = ''
+    {
+      "cusm": {
+        "prefix": "cusm",
+        "body": [
+          "pub(crate) use ''${1:x}::*;"
+        ],
+        "description": "pub(crate) use x::*;"
+      },
+      "usc": {
+        "prefix": "usc",
+        "body": [
+          "use crate::*;"
+        ],
+        "description": "use crate::*;"
+      },
+      "derive": {
+        "prefix": "derive",
+        "body": [
+          "#[derive(''${1})]"
+        ],
+        "description": "#[derive(…)]"
+      },
+      "cfg": {
+        "prefix": "cfg",
+        "body": [
+          "#[cfg(''${1})]"
+        ],
+        "description": "#[cfg(…)]"
+      },
+      "cfg_test": {
+        "prefix": "cfg_test",
+        "body": [
+          "#[cfg(test)]\nmod tests {\n\t use super::*;\n \n#[test]\nfn ''${1:name}() {\n''${2}\n}\n}"
+        ],
+        "description": "#[cfg(test)] mod tests { ... }"
+      },
+      "test": {
+        "prefix": "test",
+        "body": [
+          "#[test]",
+          "fn ''${1:name}() {",
+          "    ''${2:unimplemented!();}",
+          "}"
+        ],
+        "description": "#[test]"
+      }
+    }
+  '';
 }
