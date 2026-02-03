@@ -15,8 +15,14 @@
 
 ### Home
 
+### TUI
+
 - XDG base directory specification adherence (on a best effort basis).
 - XDG user directories (all in lowercase).
+- `readline` with vi-mode and responsive completion settings
+- `bash` with immediate history settings
+- `zoxide` for directory jumping
+- `fzf` enabled using `fd` as backend.
 
 ## Setup
 

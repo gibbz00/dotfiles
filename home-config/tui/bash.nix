@@ -15,7 +15,7 @@
 
       # user:host [directory] git-branch $
       # Generated with https://scriptim.github.io/bash-prompt-generator/
-      PS1='\[\e[0;38;5;134m\]\u\[\e[0;2m\]:\[\e[0;2m\]\h \[\e[0m\][\[\e[0;1m\]\w\[\e[0m\]]\[\e[0;3m\]$(git branch 2>/dev/null | grep '"'"'^*'"'"' | colrm 1 2) \[\e[0m\]$ \[\e[0m\]'
+      PS1=' \[\e[0;38;5;134m\]\u\[\e[0;2m\]:\[\e[0;2m\]\h \[\e[0m\][\[\e[0;1m\]\w\[\e[0m\]]\[\e[0;3m\]$(git branch 2>/dev/null | grep '"'"'^*'"'"' | colrm 1 2) \[\e[0m\]$ \[\e[0m\]'
 
       # References
       # https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html

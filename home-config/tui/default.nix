@@ -49,4 +49,9 @@
   ];
 
   programs.zoxide.enable = true;
+  programs.fzf = {
+    enable = true;
+    fileWidgetCommand = "fd --type f --hidden --follow --exclude .git";
+    changeDirWidgetCommand = "fd --type d --hidden --follow --exclude .git";
+  };
 }
