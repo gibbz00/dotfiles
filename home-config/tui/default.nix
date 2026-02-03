@@ -2,18 +2,9 @@
 {
   imports = [
     ./readline.nix
+    ./bash.nix
     ./helix.nix
   ];
-
-  # Interactive shell using bash,
-  programs.bash = {
-    enable = true;
-  };
-  xdg.configFile."bash/bashrc".text = ''
-    # user:host [directory] git-branch $
-    # Generated with https://scriptim.github.io/bash-prompt-generator/
-    PS1='\[\e[0;38;5;134m\]\u\[\e[0;2m\]:\[\e[0;2m\]\h \[\e[0m\][\[\e[0;1m\]\w\[\e[0m\]]\[\e[0;3m\]$(git branch 2>/dev/null | grep '"'"'^*'"'"' | colrm 1 2) \[\e[0m\]$ \[\e[0m\]'
-  '';
 
   home.language = {
     base = "en_US.UTF-8";

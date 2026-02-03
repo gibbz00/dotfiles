@@ -33,17 +33,6 @@
     };
   };
 
-  # Forces bash to be more compliant to the XDG base directory specification.
-  # (Inspired by: https://hiphish.github.io/blog/2020/12/27/making-bash-xdg-compliant/)
-  environment.interactiveShellInit = ''
-    _rc=''${XDG_CONFIG_HOME:-$HOME/.config}/bash/bashrc
-    test -r $_rc && . $_rc
-  '';
-  environment.loginShellInit = ''
-    _profile=''${XDG_CONFIG_HOME:-$HOME/.config}/bash/bash_profile
-    test -r $_profile && . $_profile
-  '';
-
   ## Locale
   # Required for default home.language settings
   i18n.extraLocales = [
