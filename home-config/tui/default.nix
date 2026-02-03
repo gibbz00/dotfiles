@@ -47,4 +47,6 @@
     strace
     usbutils
   ];
+
+  programs.zoxide.enable = true;
 }
