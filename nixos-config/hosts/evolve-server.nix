@@ -1,5 +1,7 @@
 { pkgs, flake-inputs, ... }:
 {
+  # networking.hostName = "evolve-server";
+
   imports = [
     ../modules/default.nix
     ../modules/uefi-bootloader.nix

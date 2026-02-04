@@ -19,7 +19,7 @@
           # TEMP: later part of hardware confiuration
           system = "x86_64-linux";
           modules = [
-            ./nixos-config/hosts/evolve.nix
+            (import ./nixos-config/hosts { hostName = "evolve"; })
           ];
 
           specialArgs.flake-inputs = inputs;
@@ -29,7 +29,7 @@
           # TEMP: later part of hardware confiuration
           system = "x86_64-linux";
           modules = [
-            ./nixos-config/hosts/evolve-server.nix
+            (import ./nixos-config/hosts { hostName = "evolve-server"; })
           ];
 
           specialArgs.flake-inputs = inputs;
