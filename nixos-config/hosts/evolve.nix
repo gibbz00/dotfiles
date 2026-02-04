@@ -1,12 +1,12 @@
 { pkgs, flake-inputs, ... }:
 {
   imports = [
-    ../base.nix
-    ../uefi-bootloader.nix
-    ../wireless-networking.nix
-    ../audio.nix
-    ../docker.nix
-    (import ../normal-user.nix {
+    ../modules/default.nix
+    ../modules/uefi-bootloader.nix
+    ../modules/wireless-networking.nix
+    ../modules/audio.nix
+    ../modules/docker.nix
+    (import ../modules/normal-user.nix {
       userName = "gibbz";
       hashedPassword = "$y$j9T$MQXA5mg/uXaH3CvJ0i1qP/$llbGFH50xgXPB2Qe7HE.Q0xDOrRxmPEPa0Ka97nt5R9";
       extraGroups = [
@@ -14,7 +14,7 @@
         "wheel"
       ];
     })
-    (import ../normal-user.nix {
+    (import ../modules/normal-user.nix {
       userName = "gh";
       hashedPassword = "$y$j9T$H9jWdmKveSuHjcTUk/B5b/$RSRUkln89GzuA3YCSaAClbuR/T3jKvPphthTNSlQts5";
       extraGroups = [

@@ -1,10 +1,10 @@
 { pkgs, flake-inputs, ... }:
 {
   imports = [
-    ../base.nix
-    ../uefi-bootloader.nix
-    ../openssh.nix
-    (import ../normal-user.nix {
+    ../modules/default.nix
+    ../modules/uefi-bootloader.nix
+    ../modules/openssh.nix
+    (import ../modules/normal-user.nix {
       userName = "gibbz";
       hashedPassword = "$y$j9T$MQXA5mg/uXaH3CvJ0i1qP/$llbGFH50xgXPB2Qe7HE.Q0xDOrRxmPEPa0Ka97nt5R9";
       extraGroups = [ "wheel" ];
