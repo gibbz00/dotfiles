@@ -27,6 +27,10 @@
   programs.firefox = {
     enable = true;
     policies = {
+      DisablePocket = true;
+      DisableSetDesktopBackground = true;
+      DisableTelemetry = true;
+      DontCheckDefaultBrowser = true;
       DefaultDownloadDirectory = "${config.xdg.userDirs.download}";
     };
   };
