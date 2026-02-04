@@ -8,6 +8,7 @@
 - `ntpd-rs` for NTP management.
 - `openssh.nix` module enables Fail2ban
 - `docker.nix` module with aggressive auto pruning enabled
+- `stylix.nix` module for system-level themeing
 
 #### Other Notes
 
@@ -24,6 +25,12 @@
 - `fzf` enabled using `fd` as backend.
 - `zoxide` for directory jumping (using `fzf` for interactive select).
 - `yazi` with a shell-wrapper mapped to `yy` (integrated in turn with `fd`, `ripgrep`, `zoxide` and `fzf`).
+
+### GUI
+
+- Sway.
+- `foot` terminal running in server mode.
+- `stylix.nix` module for home-level themeing, in addition to icon set (Tela Gray), font, and wallpaper selection.
 
 ## Setup
 

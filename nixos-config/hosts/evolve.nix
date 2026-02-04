@@ -6,6 +6,7 @@
     ../modules/wireless-networking.nix
     ../modules/audio.nix
     ../modules/docker.nix
+    ../modules/stylix.nix
     ../modules/sway.nix
     (import ../modules/normal-user.nix {
       userName = "gibbz";
