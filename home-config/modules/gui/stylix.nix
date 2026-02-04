@@ -8,8 +8,6 @@
 
     image = "${flake-inputs.self}/home-config/assets/wallpaper_penguin.jpg";
 
-    home.packages = [ pgks.thunar ];
-
     icons = {
       enable = true;
       package = pkgs.tela-icon-theme;

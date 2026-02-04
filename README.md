@@ -29,6 +29,7 @@
 ### GUI
 
 - Sway.
+- Fonts Included: noto family (+ color emoji and CJK), nerdfonts-symbols-only
 - `foot` terminal running in server mode.
 - `stylix.nix` module for home-level themeing, in addition to icon set (Tela Gray), font, and wallpaper selection.
 
