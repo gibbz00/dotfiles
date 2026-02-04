@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   imports = [
     ./sway.nix
@@ -20,6 +20,14 @@
     server.enable = true;
     settings = {
       scrollback.lines = 2000;
+    };
+  };
+
+  ## Firefox
+  programs.firefox = {
+    enable = true;
+    policies = {
+      DefaultDownloadDirectory = "${config.xdg.userDirs.download}";
     };
   };
 }

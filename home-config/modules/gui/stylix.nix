@@ -1,6 +1,9 @@
 { flake-inputs, pkgs, ... }:
 {
-  disabledModules = [ "${flake-inputs.stylix}/modules/helix/hm.nix" ];
+  disabledModules = [
+    "${flake-inputs.stylix}/modules/helix/hm.nix"
+    "${flake-inputs.stylix}/modules/firefox/hm.nix"
+  ];
 
   # Auto-enabled by sys module
   stylix = {
