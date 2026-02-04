@@ -52,8 +52,10 @@ To build a QEMU image for a `selected-host` configuration in `flake.nix`:
 nix build .#nixosConfigurations.selected-host.config.system.build.vm
 ```
 
-The built VM image can then be started with:
+The built VM image can then be started (replacing 'selected-host') with:
 
 ```sh
-QEMU_KERNEL_PARAMS="console=ttyS0" QEMU_NET_OPTS="hostfwd=tcp:127.0.0.1:2222-:22" ./result/bin/run-nixos-vm -nographic; reset
+QEMU_KERNEL_PARAMS="console=ttyS0" ./result/bin/run-selected-host-vm -nographic; reset
 ```
+
+Make sure to remove `-nographic` for all things GUI.

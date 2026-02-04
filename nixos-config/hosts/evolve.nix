@@ -6,6 +6,7 @@
     ../modules/wireless-networking.nix
     ../modules/audio.nix
     ../modules/docker.nix
+    ../modules/sway.nix
     (import ../modules/normal-user.nix {
       userName = "gibbz";
       hashedPassword = "$y$j9T$MQXA5mg/uXaH3CvJ0i1qP/$llbGFH50xgXPB2Qe7HE.Q0xDOrRxmPEPa0Ka97nt5R9";
