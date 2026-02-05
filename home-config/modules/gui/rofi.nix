@@ -5,6 +5,7 @@
     wl-clipboard
     wtype
     rofimoji
+    iwmenu
   ];
 
   wayland.windowManager.sway.config = {
@@ -21,6 +22,8 @@
              --selector-args="-theme $XDG_CONFIG_HOME/rofi/grid.rasi" \
              --hidden-descriptions --max-recent 5
       '';
+
+      "$mod+n" = "exec iwmenu --launcher rofi";
     };
     startup = [ { command = "wl-paste -t text --watch clipman store --no-persist --max-items=200"; } ];
   };
