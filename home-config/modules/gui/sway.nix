@@ -52,8 +52,14 @@
 
         seat."*".hide_cursor = "when-typing enable";
 
-        window.border = 0;
-        floating.border = 0;
+        window = {
+          border = 0;
+          titlebar = false;
+        };
+        floating = {
+          border = 0;
+          titlebar = false;
+        };
         gaps = {
           smartGaps = true;
           inner = 8;
