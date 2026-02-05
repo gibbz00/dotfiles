@@ -4,4 +4,5 @@
   # defining its rules. `rtkit` in audio.nix uses polkit regardless, not much
   # that can be done.
   security.polkit.enable = true;
+  security.pam.services.swaylock = { };
 }

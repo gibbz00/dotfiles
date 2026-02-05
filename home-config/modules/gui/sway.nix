@@ -5,6 +5,8 @@
     brightnessctl
   ];
 
+  programs.swaylock.enable = true;
+
   wayland.windowManager.sway =
     let
       mod = "Mod4";
@@ -21,7 +23,6 @@
             value = v ws;
           })
         );
-
     in
     {
       enable = true;
