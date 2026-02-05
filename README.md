@@ -30,7 +30,7 @@
 
 - `sway` with `swaylock`.
 - `foot` terminal running in server mode.
-- `rofi` lancher
+- `rofi` application, exit and clipboard launchers
 - `stylix.nix` module for home-level themeing, in addition to icon set (Tela Gray), font, and wallpaper selection.
 - fonts: noto family (+ color emoji and CJK), nerdfonts-symbols-only
 

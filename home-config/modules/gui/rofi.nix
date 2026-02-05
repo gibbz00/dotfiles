@@ -1,8 +1,21 @@
-{ config, ... }:
+{ pkgs, config, ... }:
 {
-  wayland.windowManager.sway.config.keybindings = {
-    "$mod+o" = "exec rofi -show drun -show-icons";
-    "$mod+d" = "exec --no-startup-id \"$XDG_CONFIG_HOME/rofi/exit.sh\"";
+  home.packages = with pkgs; [
+    clipman
+    wl-clipboard
+    wtype
+  ];
+
+  wayland.windowManager.sway.config = {
+    keybindings = {
+      "$mod+o" = "exec rofi -show drun -show-icons";
+      "$mod+d" = "exec --no-startup-id \"$XDG_CONFIG_HOME/rofi/exit.sh\"";
+
+      "$mod+c" = "exec clipman pick --tool rofi";
+      "$mod+Shift+c" = "exec clipman pick --tool rofi --err-on-no-selection && wtype -M ctrl -M shift v";
+      "$mod+Control+c" = "exec clipman clear --all";
+    };
+    startup = [ { command = "wl-paste -t text --watch clipman store --no-persist --max-items=200"; } ];
   };
 
   xdg.configFile."rofi/exit.sh" = {
