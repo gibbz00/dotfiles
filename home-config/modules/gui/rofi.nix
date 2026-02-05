@@ -11,6 +11,8 @@
   wayland.windowManager.sway.config = {
     keybindings = {
       "$mod+o" = "exec rofi -show drun -show-icons";
+      "$mod+w" = "exec rofi -show window -show-icons";
+
       "$mod+d" = "exec --no-startup-id \"$XDG_CONFIG_HOME/rofi/exit.sh\"";
 
       "$mod+c" = "exec clipman pick --tool rofi";
