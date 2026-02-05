@@ -29,9 +29,10 @@
 ### GUI
 
 - `sway` with `swaylock`.
-- Fonts Included: noto family (+ color emoji and CJK), nerdfonts-symbols-only
 - `foot` terminal running in server mode.
+- `rofi` lancher
 - `stylix.nix` module for home-level themeing, in addition to icon set (Tela Gray), font, and wallpaper selection.
+- fonts: noto family (+ color emoji and CJK), nerdfonts-symbols-only
 
 ## Setup
 

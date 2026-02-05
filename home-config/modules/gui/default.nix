@@ -3,6 +3,7 @@
   imports = [
     ./sway.nix
     ./stylix.nix
+    ./rofi.nix
   ];
 
   ## Fonts
