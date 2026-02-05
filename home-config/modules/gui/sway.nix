@@ -5,7 +5,15 @@
     brightnessctl
   ];
 
-  programs.swaylock.enable = true;
+  programs.swaylock = {
+    enable = true;
+    settings = {
+      indicator-idle-visible = true;
+      indicator-thickness = 13;
+      indicator-x-position = 100;
+      indicator-y-position = 100;
+    };
+  };
 
   wayland.windowManager.sway =
     let
