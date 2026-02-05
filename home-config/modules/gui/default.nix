@@ -4,6 +4,7 @@
     ./sway.nix
     ./stylix.nix
     ./rofi.nix
+    ./sway-rofi-screenshot.nix
   ];
 
   ## Fonts

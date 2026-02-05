@@ -25,12 +25,13 @@
 - `fzf` enabled using `fd` as backend.
 - `zoxide` for directory jumping (using `fzf` for interactive select).
 - `yazi` with a shell-wrapper mapped to `yy` (integrated in turn with `fd`, `ripgrep`, `zoxide` and `fzf`).
+- `tmp.nix` module for enabling a `$HOME/tmp` that gets cleaned on boot, similar to `/tmp`.
 
 ### GUI
 
 - `sway` with `swaylock`.
 - `foot` terminal running in server mode.
-- `rofi` application, exit, emoji and clipboard launchers
+- `rofi` application, exit, emoji, clipboard, and screenshot launchers
 - `stylix.nix` module for home-level themeing, in addition to icon set (Tela Gray), font, and wallpaper selection.
 - fonts: noto family (+ color emoji and CJK), nerdfonts-symbols-only
 
