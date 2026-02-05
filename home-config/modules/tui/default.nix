@@ -37,6 +37,7 @@
 
   ## Base Programs
   home.packages = with pkgs; [
+    jq
     ouch
     fd
     ripgrep

@@ -34,4 +34,7 @@
       DefaultDownloadDirectory = "${config.xdg.userDirs.download}";
     };
   };
+
+  ## Other Packages
+  programs.zathura.enable = true;
 }
