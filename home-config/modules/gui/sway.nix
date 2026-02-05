@@ -24,6 +24,23 @@
       config = {
         modifier = mod;
 
+        seat."*".hide_cursor = "when-typing enable";
+
+        window.border = 0;
+        floating.border = 0;
+        gaps = {
+          smartGaps = true;
+          inner = 8;
+          outer = 4;
+        };
+
+        input."type:keyboard" = {
+          # - toggle between layout with alt+shift
+          # - compose required for special characters to work on ZMK
+          xkb_options = "grp:alt_space_toggle,compose:ralt";
+          xkb_layout = "us,se";
+        };
+
         bars = [
           (
             config.stylix.targets.sway.exportedBarConfig
@@ -37,19 +54,6 @@
               '';
             }
           )
-        ];
-
-        gaps = {
-          smartGaps = true;
-          inner = 8;
-          outer = 4;
-        };
-
-        window.border = 0;
-        floating.border = 0;
-
-        startup = [
-          { command = "foot"; }
         ];
       };
     };
