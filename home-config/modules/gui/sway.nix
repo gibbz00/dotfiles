@@ -5,6 +5,8 @@
     brightnessctl
   ];
 
+  services.fnott.enable = true;
+
   programs.swaylock = {
     enable = true;
     settings = {
@@ -18,7 +20,6 @@
   wayland.windowManager.sway =
     let
       mod = "Mod4";
-
       ws_bind =
         { k, v }:
         let
@@ -126,6 +127,9 @@
 
             # Exec
             "$mod+Return" = "exec footclient";
+
+            "$mod+BackSpace" = "exec fnottctl dismiss";
+            "$mod+Colon" = "exec context actions";
 
             "XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
             "XF86MonBrightnessUp" = "exec brightnessctl set 5%+";
