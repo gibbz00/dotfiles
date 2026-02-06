@@ -72,3 +72,11 @@ QEMU_KERNEL_PARAMS="console=ttyS0" ./result/bin/run-selected-host-vm -nographic;
 ```
 
 Make sure to remove `-nographic` for all things GUI.
+
+## Todo
+
+### Unclutter Home (XDG Base Directory Specification Adherence)
+
+* `bash`: https://savannah.gnu.org/support/?108134
+* `firefox`: https://bugzilla.mozilla.org/show_bug.cgi?id=2005167
+* `gtk3`: https://github.com/nix-community/stylix/pull/1142
