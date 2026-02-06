@@ -7,6 +7,7 @@
     ./rofi.nix
     ./fnott.nix
     ./screenshot.nix
+    ./opacity.nix
   ];
 
   programs.bash.profileExtra = ''
