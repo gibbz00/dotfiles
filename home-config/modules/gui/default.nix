@@ -1,7 +1,10 @@
+{
+  autoStartFromTty,
+}:
 { config, pkgs, ... }:
 {
   imports = [
-    ./sway.nix
+    (import ./sway.nix { inherit autoStartFromTty; })
     ./stylix.nix
     ./rofi.nix
     ./sway-rofi-screenshot.nix

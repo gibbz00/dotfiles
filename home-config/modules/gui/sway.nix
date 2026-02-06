@@ -1,5 +1,12 @@
+{
+  autoStartFromTty,
+}:
 { config, pkgs, ... }:
 {
+  programs.bash.profileExtra = ''
+    [[ ! $DISPLAY && XDG_VTNR -eq ${pkgs.lib.toString autoStartFromTty} ]] && exec sway
+  '';
+
   home.packages = with pkgs; [
     upower
     brightnessctl
