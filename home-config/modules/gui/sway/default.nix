@@ -6,7 +6,7 @@
   imports = [
     ./rofi.nix
     ./fnott.nix
-    ./sway-rofi-screenshot.nix
+    ./screenshot.nix
   ];
 
   programs.bash.profileExtra = ''
