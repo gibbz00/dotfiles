@@ -3,6 +3,11 @@
 }:
 { config, pkgs, ... }:
 {
+  imports = [
+    ./rofi.nix
+    ./sway-rofi-screenshot.nix
+  ];
+
   programs.bash.profileExtra = ''
     [[ ! $DISPLAY && XDG_VTNR -eq ${pkgs.lib.toString autoStartFromTty} ]] && exec sway
   '';

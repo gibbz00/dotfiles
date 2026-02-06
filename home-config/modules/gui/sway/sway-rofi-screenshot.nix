@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ flake-inputs, pkgs, ... }:
 {
   imports = [
-    ../tui/tmp.nix
+    "${flake-inputs.self}/home-config/modules/tui/tmp.nix"
   ];
 
   home.packages = with pkgs; [

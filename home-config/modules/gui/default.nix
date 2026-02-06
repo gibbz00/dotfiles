@@ -4,10 +4,8 @@
 { config, pkgs, ... }:
 {
   imports = [
-    (import ./sway.nix { inherit autoStartFromTty; })
     ./stylix.nix
-    ./rofi.nix
-    ./sway-rofi-screenshot.nix
+    (import ./sway/default.nix { inherit autoStartFromTty; })
   ];
 
   ## Fonts
