@@ -17,6 +17,8 @@
   home.packages = with pkgs; [
     upower
     brightnessctl
+    # for XDG portal screen record region selections
+    slurp
   ];
 
   programs.swaylock = {
@@ -151,6 +153,22 @@
           };
       };
     };
+
+  xdg.portal = {
+    enable = true;
+
+    # https://github.com/emersion/xdg-desktop-portal-wlr/blob/master/README.md#running
+    config.sway = {
+      default = [ "gtk" ];
+      "org.freedesktop.impl.portal.Screenshot" = [ "wlr" ];
+      "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];
+    };
+
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-wlr
+      xdg-desktop-portal-gtk
+    ];
+  };
 
   xdg.configFile."sway/bar.sh" = {
     executable = true;
