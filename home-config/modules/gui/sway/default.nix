@@ -5,6 +5,7 @@
 {
   imports = [
     ./rofi.nix
+    ./fnott.nix
     ./sway-rofi-screenshot.nix
   ];
 
@@ -16,8 +17,6 @@
     upower
     brightnessctl
   ];
-
-  services.fnott.enable = true;
 
   programs.swaylock = {
     enable = true;
@@ -145,9 +144,6 @@
 
             # Exec
             "$mod+Return" = "exec footclient";
-
-            "$mod+BackSpace" = "exec fnottctl dismiss";
-            "$mod+Colon" = "exec context actions";
 
             "XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
             "XF86MonBrightnessUp" = "exec brightnessctl set 5%+";
