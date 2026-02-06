@@ -10,6 +10,9 @@
     ./opacity.nix
   ];
 
+  # XDG base directory touchups
+  xresources.path = "${config.xdg.configHome}/x11/.Xresources";
+
   programs.bash.profileExtra = ''
     [[ ! $DISPLAY && XDG_VTNR -eq ${pkgs.lib.toString autoStartFromTty} ]] && exec sway
   '';
