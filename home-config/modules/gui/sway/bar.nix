@@ -24,7 +24,7 @@
       _kb_layout=$(swaymsg -t get_inputs \
         | jq -r ".[] | select(.type==\"keyboard\") | .xkb_active_layout_name" \
         | head -n1)
-      echo "$_date $_battery_percentage | $_kb_layout"
+      echo "$_date $_battery_percentage% | $_kb_layout"
     '';
   };
 }
