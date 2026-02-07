@@ -6,6 +6,10 @@
   security.polkit.enable = true;
   security.pam.services.swaylock = { };
 
+  # Fix for "EGL_EXT_platform_base not supported"
+  # error when launching sway.
+  hardware.opengl.enable = true;
+
   # XDG portals, remaining configured in home
   environment.pathsToLink = [
     "/share/xdg-desktop-portal"
