@@ -67,7 +67,7 @@ Based on: https://github.com/nix-community/nixos-anywhere/blob/main/docs/howtos/
 #### Preparing the remote
 
 1. Boot from live usb
-2. Make connect to LAN (e.g. with `nmtui` for Wifi).
+2. Make connect to LAN (ex. with `nmtui` for Wifi).
 3. Get IP address with `ip addr`.
 4. Set a password for the `nixos` user with `passwd`.
 5. Make sure that the `flake.nix`'s `diskName` is the same as the disk name reported by `lsblk`.
