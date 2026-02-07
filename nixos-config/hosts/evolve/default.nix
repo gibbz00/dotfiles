@@ -14,6 +14,8 @@
       extraGroups = [
         "docker"
         "wheel"
+        # for way-displays
+        "input"
       ];
     })
     (import ../../modules/normal-user.nix {
@@ -22,6 +24,8 @@
       extraGroups = [
         "docker"
         "wheel"
+        # for way-displays
+        "input"
       ];
     })
   ];

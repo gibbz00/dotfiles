@@ -46,6 +46,10 @@
     settings = {
       ARRANGE = "COLUMN";
       ALIGN = "LEFT";
+      ORDER = [
+        "'!.*$'"
+        "eDP-1"
+      ];
     };
   };
 
