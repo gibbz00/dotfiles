@@ -32,8 +32,8 @@
   # XDG user directories
   xdg.userDirs = {
     enable = true;
-    download = "downloads";
-    documents = "documents";
+    download = "${config.home.homeDirectory}/downloads";
+    documents = "${config.home.homeDirectory}/documents";
     music = "${config.xdg.userDirs.documents}/music";
     pictures = "${config.xdg.userDirs.documents}/pictures";
     publicShare = "${config.xdg.userDirs.documents}/public";
