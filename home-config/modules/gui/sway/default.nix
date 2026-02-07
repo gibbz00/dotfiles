@@ -18,7 +18,6 @@
   '';
 
   home.packages = with pkgs; [
-    upower
     brightnessctl
     # for XDG portal screen record region selections
     slurp
@@ -178,10 +177,7 @@
     text = ''
       #!/bin/sh
       _date=$(date +'%Y-%m-%d %H:%M:%S')
-      _battery_percentage=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 \
-        | rg percentage \
-        | cut -d ':' -f2 \
-        | tr -d ' ')
+      _battery_percentage=$(cat /sys/class/power_supply/BAT0/capacity)
       _kb_layout=$(swaymsg -t get_inputs \
         | jq -r ".[] | select(.type==\"keyboard\") | .xkb_active_layout_name" \
         | head -n1)
