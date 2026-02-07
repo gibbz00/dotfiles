@@ -41,9 +41,12 @@
     };
   };
 
+  # Remember to add user to input group for automatic
+  # laptop lid open/close detection.
   services.way-displays = {
     enable = true;
     settings = {
+      LOG_THRESHOLD = "ERROR";
       ARRANGE = "COLUMN";
       ALIGN = "LEFT";
       ORDER = [
