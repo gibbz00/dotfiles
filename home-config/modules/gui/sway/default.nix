@@ -41,6 +41,14 @@
     };
   };
 
+  services.way-displays = {
+    enable = true;
+    settings = {
+      ARRANGE = "COLUMN";
+      ALIGN = "LEFT";
+    };
+  };
+
   wayland.windowManager.sway =
     let
       mod = "Mod4";

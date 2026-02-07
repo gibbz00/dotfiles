@@ -33,6 +33,7 @@
   - Sway is autostarted directly from TTY login, no extra login manager required.
   - Window focus is conveyed by toggleable inactive window transparency.
   - Includes an xdg-portal ready for screen recording.
+  - `way-displays` for automatic display management.
 - `foot` terminal running in server mode.
 - `rofi` application, exit, emoji, clipboard, screenshot, network and bluetooth launchers
 - `stylix.nix` module for home-level themeing, in addition to icon set (Tela Gray), font, and wallpaper selection.
