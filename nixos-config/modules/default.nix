@@ -11,9 +11,10 @@
   ## Security
   security.sudo.wheelNeedsPassword = false;
 
-  ## NTP
+  ## NTP and timezones
   # See: https://discourse.nixos.org/t/why-are-we-using-systemd-timesyncd-by-default/74052/22
   services.ntpd-rs.enable = true;
+  services.automatic-timezoned.enable = true;
 
   ## System packages
   # TODO: default core packages are also pretty bloated IMO
