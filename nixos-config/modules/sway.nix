@@ -8,7 +8,7 @@
 
   # Fix for "EGL_EXT_platform_base not supported"
   # error when launching sway.
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
 
   # XDG portals, remaining configured in home
   environment.pathsToLink = [
