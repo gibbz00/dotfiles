@@ -90,7 +90,7 @@ You may want to commit any newly generated hardware configurations (`hardware.ni
 Rebuild switch from a remote flake:
 
 ```sh
-sudo nixos-rebuild switch --flake github:owner/repo#selected-conf
+sudo nixos-rebuild switch --flake github:gibbz00/dotfiles#selected-conf
 ```
 
 Or if already present locally:
