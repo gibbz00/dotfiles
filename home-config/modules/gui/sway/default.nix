@@ -50,7 +50,7 @@
       ARRANGE = "COLUMN";
       ALIGN = "LEFT";
       ORDER = [
-        "'!.*$'"
+        "!^DP-"
         "eDP-1"
       ];
     };
