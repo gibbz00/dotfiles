@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   flake-inputs,
   ...
@@ -31,6 +32,7 @@
     useUserPackages = true;
     extraSpecialArgs = {
       inherit flake-inputs;
+      osConfig = config;
     };
   };
 

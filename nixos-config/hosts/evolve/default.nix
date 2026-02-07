@@ -26,6 +26,8 @@
     })
   ];
 
+  hardware.bluetooth.enable = true;
+
   users.users.root = {
     initialHashedPassword = "$y$j9T$4t7xt45hJsnvW67oU1C2c/$syarYVJrnEZnGdMAIomyqoGLKOk2XxEockI8QYgdl.7";
   };

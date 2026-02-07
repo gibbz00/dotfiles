@@ -1,10 +1,18 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  osConfig,
+  lib,
+  ...
+}:
 {
   imports = [
     ./readline.nix
     ./bash.nix
     ./helix.nix
   ];
+
+  services.mpris-proxy.enable = osConfig.hardware.bluetooth.enable;
 
   home.language = {
     base = "en_US.UTF-8";
