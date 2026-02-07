@@ -1,14 +1,22 @@
 {
   autoStartFromTty,
 }:
-{ config, pkgs, ... }:
+{
+  config,
+  osConfig,
+  pkgs,
+  lib,
+  ...
+}:
 {
   imports = [
     ./rofi.nix
     ./fnott.nix
     ./screenshot.nix
     ./opacity.nix
-  ];
+  ]
+  ++ (lib.optional osConfig.networking.wireless.iwd.enable ./iwmenu.nix)
+  ++ (lib.optional osConfig.hardware.bluetooth.enable ./bzmenu.nix);
 
   # XDG base directory touchups
   xresources.path = "${config.xdg.configHome}/x11/.Xresources";
