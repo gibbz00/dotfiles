@@ -1,8 +1,8 @@
 # Gibbz's NixOS dotfiles
 
-## Stack
+## Features
 
-### System
+### System - NixOS
 
 - `iwd` for wireless network management.
 - `ntpd-rs` for NTP management.
@@ -12,9 +12,9 @@
 
 #### Other Notes
 
-- `wheelNeedsPassword` is set to `false` in the `base.nix` module, take care when adding new users.
+- `wheelNeedsPassword` is set to `false` in the `nixos-config/modules/default.nix`, take care when adding new users belonging to wheel.
 
-### Home
+### Home - Home Manager
 
 ### TUI
 
@@ -40,38 +40,65 @@
 
 ## Setup
 
-### Switching from a already flake enabled NixOS host
+`selected-conf` placeholder needs to match one of the `nixosConfigurations` listed in the `flake.nix`, ex. `evolve`.
 
-`selected-host` needs to match one of the hosts listed in the `flake.nix`. Flake can be fetched remotely:
-
-```sh
-sudo nixos-rebuild switch --flake github:owner/repo#selected-host
-```
-
-Or if already present in the system:
-
-```sh
-# in directory where flake.nix is located
-sudo nixos-rebuild switch --flake .
-```
+All hosts running commands are expected to have [flakes enabled](https://nixos.wiki/wiki/Flakes). Verify this by running `nix flake`.
 
 ### Running them inside QEMU
 
-QEMU and nix needs to first be installed on the host, the latter one with [with flakes enabled](https://nixos.wiki/wiki/Flakes).
-
-To build a QEMU image for a `selected-host` configuration in `flake.nix`:
+To build the VM image:
 
 ```sh
-nix build .#nixosConfigurations.selected-host.config.system.build.vm
+nix build .#nixosConfigurations.selected-conf.config.system.build.vm
 ```
 
-The built VM image can then be started (replacing 'selected-host') with:
+To then run it with QEMU:
 
 ```sh
 QEMU_KERNEL_PARAMS="console=ttyS0" ./result/bin/run-selected-host-vm -nographic; reset
 ```
 
 Make sure to remove `-nographic` for all things GUI.
+
+### Remote install with `nixos-anywhere` and a live usb.
+
+Based on: https://github.com/nix-community/nixos-anywhere/blob/main/docs/howtos/no-os.md
+
+#### Preparing the remote
+
+1. Boot from live usb
+2. Make connect to LAN (e.g. with `nmtui` for Wifi).
+3. Get IP address with `ip addr`.
+4. Set a password for the `nixos` user with `passwd`.
+5. Make sure that the `flake.nix`'s `diskName` is the same as the disk name reported by `lsblk`.
+6. Finally:
+
+```sh
+_os_config='evolve' # which nixosconfigurations in flake.nix to use
+_remote_ip="..." # from ip addr on remote
+nix run github:nix-community/nixos-anywhere -- \
+  --flake ".#$_os_config" \
+  --target-host "nixos@$_remote_ip" \
+  # omit if a hardware configuration already exists
+  --generate-hardware-config nixos-generate-config "./nixos-config/hosts/$_os_config/hardware.nix"
+```
+
+You may want to commit any newly generated hardware configurations (`hardware.nix`) to git.
+
+### From an existing NixOS host
+
+Rebuild switch from a remote flake:
+
+```sh
+sudo nixos-rebuild switch --flake github:owner/repo#selected-conf
+```
+
+Or if already present locally:
+
+```sh
+# in directory where flake.nix is located
+sudo nixos-rebuild switch --flake .#selected-conf
+```
 
 ## Todo
 
