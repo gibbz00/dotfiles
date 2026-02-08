@@ -1,9 +1,17 @@
-{ flake-inputs, pkgs, ... }:
+{
+  flake-inputs,
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   disabledModules = [
     "${flake-inputs.stylix}/modules/helix/hm.nix"
     "${flake-inputs.stylix}/modules/firefox/hm.nix"
   ];
+
+  stylix.targets.rofi.alternatePattern = false;
 
   # Auto-enabled by sys module
   stylix = {

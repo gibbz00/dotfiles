@@ -10,7 +10,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
-      url = "github:nix-community/stylix";
+      # TEMP: https://github.com/nix-community/stylix/pull/2193
+      url = "github:gibbz00/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
