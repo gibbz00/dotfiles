@@ -45,6 +45,7 @@
 
   ## Nix base settings
   nix = {
+    channel.enable = false;
     settings = {
       use-xdg-base-directories = true;
       experimental-features = [
