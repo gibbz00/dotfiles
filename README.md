@@ -1,5 +1,7 @@
 # Gibbz's NixOS dotfiles
 
+![Desktop Screenshot](./assets/screenshot.png)
+
 ## Features
 
 ### System - NixOS
@@ -8,7 +10,7 @@
 - `ntpd-rs` for NTP management and `automatic-timezoned` for timezone selection.
 - `openssh.nix` module enables Fail2ban
 - `docker.nix` module with aggressive auto pruning enabled
-- `stylix.nix` module for system-level themeing
+- `stylix.nix` module for system-level theming
 
 #### Other Notes
 
@@ -36,7 +38,7 @@
   - `way-displays` for automatic display management.
 - `foot` terminal running in server mode.
 - `rofi` application, exit, emoji, clipboard, screenshot, network and bluetooth launchers
-- `stylix.nix` module for home-level themeing, in addition to icon set (Tela Gray), font, and wallpaper selection.
+- `stylix.nix` module for home-level theming, in addition to icon set (Tela Gray), font, and wallpaper selection.
 - fonts: noto family (+ color emoji and CJK), nerdfonts-symbols-only
 
 ## Setup
