@@ -44,4 +44,14 @@
 
   ## Other Packages
   programs.zathura.enable = true;
+
+  ## XDG Open
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "application/pdf" = "org.pwmt.zathura.desktop";
+      "text/html" = "firefox.desktop";
+      "text/plain" = "Helix.desktop";
+    };
+  };
 }
