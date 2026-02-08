@@ -29,6 +29,10 @@
   ## Firefox
   programs.firefox = {
     enable = true;
+    profiles.main.settings = {
+      "widget.use-xdg-desktop-portal.file-picker" = 1;
+    };
+
     policies = {
       DisablePocket = true;
       DisableSetDesktopBackground = true;
