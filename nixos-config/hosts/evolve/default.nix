@@ -32,6 +32,9 @@
 
   hardware.bluetooth.enable = true;
 
+  # Required for modification by gh's `vpn-slice`
+  environment.etc.hosts.mode = "0644";
+
   users.users.root = {
     initialHashedPassword = "$y$j9T$4t7xt45hJsnvW67oU1C2c/$syarYVJrnEZnGdMAIomyqoGLKOk2XxEockI8QYgdl.7";
   };
