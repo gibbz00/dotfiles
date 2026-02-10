@@ -53,6 +53,7 @@
     ## Diagnostics
     btop
     mtr
+    dig
     pciutils
     strace
     usbutils
