@@ -40,5 +40,30 @@
     docker-compose
     openconnect
     vpn-slice
+
+    (writeShellScriptBin "lvpn" ''
+      if [ $1 == "--no-split" ]; then
+        sudo openconnect vpn1.leissner.se --authgroup lda-asa --user gh
+      else
+        _slice_command='vpn-slice {webmail1,jira,confluence,src,gate}.leissner.se'
+        sudo openconnect vpn1.leissner.se --authgroup lda-asa --user gh -s "$_slice_command"
+      fi
+    '')
+    (writeShellScriptBin "lproxy" ''
+      if [ $1 == "on" ]; then
+          export http_proxy="http://192.168.1.1:80"
+          export https_proxy="http://192.168.1.1:80"
+          export ftp_proxy="http://192.168.1.1:80"
+      fi
+
+      if [ $1 == "off" ]; then
+          unset http_proxy
+          unset https_proxy
+          unset ftp_proxy
+      fi
+    '')
+    (writeShellScriptBin "lvvv" ''
+      curl --proxy "" http://vvv.leissner.se/open-gh
+    '')
   ];
 }
