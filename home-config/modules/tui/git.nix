@@ -1,19 +1,14 @@
-{
-  userName,
-  userEmail,
-  defaultBranch ? "main",
-}:
 { ... }:
 {
   programs.git = {
     enable = true;
     settings = {
       user = {
-        name = userName;
-        email = userEmail;
+        name = "gibbz00";
+        email = "gabrielhansson00@gmail.com";
       };
       init = {
-        inherit defaultBranch;
+        defaultBranch = "main";
       };
       branch = {
         autoSetupRebase = "always";

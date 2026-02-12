@@ -1,11 +1,20 @@
 { pkgs, ... }:
 {
   imports = [
-    (import ../../modules/tui/git.nix {
-      userName = "Gabriel Hansson";
-      userEmail = "gh@leissner.se";
-      defaultBranch = "master";
-    })
+    ../../modules/tui/git.nix
+  ];
+
+  programs.git.includes = [
+    {
+      condition = "gitdir:~/projects/leissner/";
+      contents = {
+        init.defaultBranch = "master";
+        user = {
+          email = "gh@leissner.se";
+          name = "Gabriel Hansson";
+        };
+      };
+    }
   ];
 
   programs.ssh = {

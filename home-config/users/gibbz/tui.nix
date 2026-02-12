@@ -1,10 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    (import ../../modules/tui/git.nix {
-      userName = "gibbz00";
-      userEmail = "gabrielhansson00@gmail.com";
-    })
+    ../../modules/tui/git.nix
   ];
 
   programs.ssh = {
