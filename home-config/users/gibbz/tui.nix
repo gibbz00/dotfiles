@@ -4,6 +4,11 @@
     ../../modules/tui/git.nix
   ];
 
+  programs.gcc.enable = true;
+  home.packages = with pkgs; [
+    rustup
+  ];
+
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
