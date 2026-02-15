@@ -10,6 +10,7 @@
     ./readline.nix
     ./bash.nix
     ./helix.nix
+    ./starship.nix
   ];
 
   services.mpris-proxy.enable = osConfig.hardware.bluetooth.enable;
@@ -60,11 +61,13 @@
   ];
 
   programs.zoxide.enable = true;
+
   programs.fzf = {
     enable = true;
     fileWidgetCommand = "fd --type f --hidden --follow --exclude .git";
     changeDirWidgetCommand = "fd --type d --hidden --follow --exclude .git";
   };
+
   programs.yazi = {
     enable = true;
     settings = {
