@@ -11,6 +11,7 @@
 - `openssh.nix` module enables Fail2ban
 - `docker.nix` module with aggressive auto pruning enabled
 - `stylix.nix` module for system-level theming
+- `audio.nix` module enabling Pipewire, Rtkit, and wiremix.
 
 #### Other Notes
 
