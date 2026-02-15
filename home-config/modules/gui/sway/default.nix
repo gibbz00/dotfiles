@@ -54,6 +54,12 @@
         "!^DP-"
         "eDP-1"
       ];
+      SCALE = [
+        {
+          NAME_DESC = "eDP-1";
+          SCALE = 1.0;
+        }
+      ];
     };
   };
 
