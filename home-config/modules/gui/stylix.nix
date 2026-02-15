@@ -26,6 +26,12 @@
       dark = "Tela-grey-dark";
     };
 
+    cursor = {
+      package = pkgs.capitaine-cursors;
+      name = "capitaine-cursors";
+      size = 24;
+    };
+
     fonts = {
       serif = {
         package = pkgs.noto-fonts;
