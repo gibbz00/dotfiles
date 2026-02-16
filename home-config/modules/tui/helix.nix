@@ -300,8 +300,15 @@
       [[language]]
       name = "rust"
       language-servers = ["rust-analyzer", "typos-lsp", "scls"]
+
+      [[language]]
+      name = "cpp"
+      auto-format = true
+      formatter = { command = "clang-format" }
+      language-servers = ["clangd", "typos-lsp"]
     '';
   };
+
   xdg.configFile."helix/snippets/rust.json".text = ''
     {
       "cusm": {
