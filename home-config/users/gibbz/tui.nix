@@ -2,11 +2,7 @@
 {
   imports = [
     ../../modules/tui/git.nix
-  ];
-
-  programs.gcc.enable = true;
-  home.packages = with pkgs; [
-    rustup
+    ../../modules/tui/rustup.nix
   ];
 
   programs.ssh = {

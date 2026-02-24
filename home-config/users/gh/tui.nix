@@ -2,6 +2,7 @@
 {
   imports = [
     ../../modules/tui/git.nix
+    ../../modules/tui/rustup.nix
   ];
 
   programs.git.includes = [
