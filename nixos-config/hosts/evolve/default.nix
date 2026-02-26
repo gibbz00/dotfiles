@@ -1,4 +1,9 @@
-{ pkgs, flake-inputs, ... }:
+{
+  lib,
+  pkgs,
+  flake-inputs,
+  ...
+}:
 {
   imports = [
     ../../modules/default.nix
@@ -34,6 +39,8 @@
 
   # Required for modification by gh's `vpn-slice`
   environment.etc.hosts.mode = "0644";
+  # For gh jetbrains-idea, result of home-manager using global pkgs.
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "idea" ];
 
   users.users.root = {
     initialHashedPassword = "$y$j9T$4t7xt45hJsnvW67oU1C2c/$syarYVJrnEZnGdMAIomyqoGLKOk2XxEockI8QYgdl.7";
