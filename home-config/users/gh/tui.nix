@@ -47,7 +47,6 @@
   };
 
   home.packages = with pkgs; [
-    docker-compose
     openconnect
     vpn-slice
 
