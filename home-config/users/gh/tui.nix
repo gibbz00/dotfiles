@@ -24,6 +24,9 @@
       setEnv = {
         TERM = "xterm-256color";
       };
+      extraOptions = {
+        WarnWeakCrypto = "no-pq-kex";
+      };
     };
     extraConfig = ''
       Host rick
