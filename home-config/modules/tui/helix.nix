@@ -261,13 +261,13 @@
       git-global = false
       git-exclude = false
     '';
-    # rust-analyzer part of rustup
     extraPackages = with pkgs; [
       marksman
-      nixfmt
       simple-completion-language-server
+      nixfmt
       taplo
       typos-lsp
+      rust-analyzer
     ];
     languages = builtins.fromTOML ''
       [language-server]
