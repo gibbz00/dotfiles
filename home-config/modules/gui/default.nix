@@ -6,6 +6,7 @@
   imports = [
     ./stylix.nix
     (import ./sway/default.nix { inherit autoStartFromTty; })
+    ./fcitx.nix
   ];
 
   ## Fonts
@@ -29,6 +30,10 @@
   ## Firefox
   programs.firefox = {
     enable = true;
+
+    # TEMP: not required after state version 26.05
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
+
     profiles.main.settings = {
       "widget.use-xdg-desktop-portal.file-picker" = 1;
     };

@@ -33,6 +33,7 @@
   # XDG user directories
   xdg.userDirs = {
     enable = true;
+    setSessionVariables = true;
     download = "${config.home.homeDirectory}/downloads";
     documents = "${config.home.homeDirectory}/documents";
     music = "${config.xdg.userDirs.documents}/music";
@@ -70,6 +71,7 @@
 
   programs.yazi = {
     enable = true;
+    shellWrapperName = "yy";
     settings = {
       mgr = {
         show_hidden = true;
