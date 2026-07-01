@@ -40,6 +40,7 @@
 
   # Required for modification by gh's `vpn-slice`
   environment.etc.hosts.mode = "0644";
+
   # For gh jetbrains-idea, result of home-manager using global pkgs.
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "idea" ];
 

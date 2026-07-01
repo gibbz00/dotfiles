@@ -62,4 +62,9 @@
       options = "--delete-older-than 7d";
     };
   };
+
+  ## TEMP:
+  nixpkgs.config.permittedInsecurePackages = [
+    "pnpm-10.34.0"
+  ];
 }

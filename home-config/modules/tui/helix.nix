@@ -268,6 +268,8 @@
       simple-completion-language-server
       taplo
       typos-lsp
+      typescript-language-server
+      vue-language-server
     ];
     languages = builtins.fromTOML ''
       [language-server]
