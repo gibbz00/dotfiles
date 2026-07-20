@@ -44,6 +44,12 @@
   # For gh jetbrains-idea, result of home-manager using global pkgs.
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "idea" ];
 
+  # TODO: place this somewhere more appriopriate
+  services.udev.extraRules = ''
+    # For `wchisp`.
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="4348", ATTRS{idProduct}=="55e0", MODE="0666"
+  '';
+
   users.users.root = {
     initialHashedPassword = "$y$j9T$4t7xt45hJsnvW67oU1C2c/$syarYVJrnEZnGdMAIomyqoGLKOk2XxEockI8QYgdl.7";
   };
