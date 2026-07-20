@@ -270,45 +270,83 @@
       typos-lsp
       typescript-language-server
       vue-language-server
+      tailwindcss-language-server
+      emmet-language-server
     ];
-    languages = builtins.fromTOML ''
-      [language-server]
-      scls = { command = "simple-completion-language-server", config = { max_completion_items = 10, feature_words = false } }
-      typos-lsp = { command = "typos-lsp" }
+    languages =
+      builtins.fromTOML ''
 
-      [language-server.rust-analyzer.config]
-      check.command = "clippy"
-      cargo.features = "all"
-      diagnostics.disabled = ["inactive-code"]
+        [[language]]
+        name = "nix"
+        formatter = { command = "nixfmt" }
+        auto-format = true
 
-      [[language]]
-      name = "nix"
-      formatter = { command = "nixfmt" }
-      auto-format = true
+        [[language]]
+        name = "toml"
+        auto-format = true
+        language-servers = ["taplo", "typos-lsp"]
 
-      [[language]]
-      name = "toml"
-      auto-format = true
-      language-servers = ["taplo", "typos-lsp"]
+        [[language]]
+        name = "markdown"
+        language-servers = ["marksman", "typos-lsp"]
 
-      [[language]]
-      name = "markdown"
-      language-servers = ["marksman", "typos-lsp"]
+        [[language]]
+        name = "git-commit"
+        language-servers = ["typos-lsp"]
 
-      [[language]]
-      name = "git-commit"
-      language-servers = ["typos-lsp"]
+        [[language]]
+        name = "rust"
+        language-servers = ["rust-analyzer", "typos-lsp", "scls"]
 
-      [[language]]
-      name = "rust"
-      language-servers = ["rust-analyzer", "typos-lsp", "scls"]
+        [[language]]
+        name = "cpp"
+        auto-format = true
+        formatter = { command = "clang-format" }
+        language-servers = ["clangd", "typos-lsp"]
 
-      [[language]]
-      name = "cpp"
-      auto-format = true
-      formatter = { command = "clang-format" }
-      language-servers = ["clangd", "typos-lsp"]
-    '';
+        [[language]]
+        name = "typescript"
+        auto-format = true
+        formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+
+        [[language]]
+        name = "vue"
+        auto-format = true
+        formatter = { command = "prettier", args = ["--parser", "vue"] }
+        language-servers = ["vuels", "typescript-language-server", "tailwindcss-ls", "emmet-lsp"]
+      ''
+      // {
+        language-server = {
+          scls = {
+            command = "simple-completion-language-server";
+            config = {
+              max_completion_items = 10;
+              feature_words = false;
+            };
+          };
+          typos-lsp = {
+            command = "typos-lsp";
+          };
+          emmet-lsp = {
+            command = "emmet-language-server";
+            args = [ "--stdio" ];
+          };
+          rust-analyzer.config = {
+            check.command = "clippy";
+            cargo.features = "all";
+            diagnostics.disabled = [ "inactive-code" ];
+          };
+          typescript-language-server.config = {
+            plugins = [
+              {
+                languages = [ "vue" ];
+                name = "@vue/typescript-plugin";
+                location = "${pkgs.vue-language-server}/bin/vue-language-server";
+              }
+            ];
+          };
+        };
+      };
   };
 
   xdg.configFile."helix/snippets/rust.json".text = ''
