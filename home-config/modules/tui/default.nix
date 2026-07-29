@@ -59,6 +59,7 @@
     pciutils
     strace
     usbutils
+    termshark
   ];
 
   programs.zoxide.enable = true;
