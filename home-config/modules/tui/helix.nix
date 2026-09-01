@@ -264,6 +264,7 @@
     # rust-analyzer part of rustup
     extraPackages = with pkgs; [
       ruff
+      ty
       marksman
       nixfmt
       simple-completion-language-server
