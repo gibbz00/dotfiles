@@ -263,6 +263,7 @@
     '';
     # rust-analyzer part of rustup
     extraPackages = with pkgs; [
+      zuban
       marksman
       nixfmt
       simple-completion-language-server
@@ -275,6 +276,9 @@
     ];
     languages =
       builtins.fromTOML ''
+        [[language]]
+        name = "python"
+        language-servers = ["zuban"]
 
         [[language]]
         name = "nix"
@@ -317,6 +321,10 @@
       ''
       // {
         language-server = {
+          zuban = {
+            command = "zuban";
+            args = [ "server" ];
+          };
           scls = {
             command = "simple-completion-language-server";
             config = {
