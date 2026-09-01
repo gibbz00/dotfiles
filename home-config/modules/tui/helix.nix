@@ -280,6 +280,7 @@
         [[language]]
         name = "python"
         auto-format = true
+        language-servers = ["ty", "ruff", "typos-lsp"]
 
         [[language]]
         name = "nix"
