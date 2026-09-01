@@ -278,6 +278,10 @@
     languages =
       builtins.fromTOML ''
         [[language]]
+        name = "python"
+        auto-format = true
+
+        [[language]]
         name = "nix"
         formatter = { command = "nixfmt" }
         auto-format = true
