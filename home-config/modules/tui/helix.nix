@@ -263,7 +263,7 @@
     '';
     # rust-analyzer part of rustup
     extraPackages = with pkgs; [
-      zuban
+      ruff
       marksman
       nixfmt
       simple-completion-language-server
@@ -276,10 +276,6 @@
     ];
     languages =
       builtins.fromTOML ''
-        [[language]]
-        name = "python"
-        language-servers = ["zuban"]
-
         [[language]]
         name = "nix"
         formatter = { command = "nixfmt" }
