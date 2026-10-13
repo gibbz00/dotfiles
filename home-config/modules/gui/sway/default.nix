@@ -15,6 +15,7 @@
     ./fnott.nix
     ./screenshot.nix
     ./opacity.nix
+    ./battery.nix
   ]
   ++ (lib.optional osConfig.networking.wireless.iwd.enable ./iwmenu.nix)
   ++ (lib.optional osConfig.hardware.bluetooth.enable ./bzmenu.nix);
