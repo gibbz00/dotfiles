@@ -50,6 +50,7 @@
   };
 
   home.packages = with pkgs; [
+    claude-code
     openconnect
     vpn-slice
 

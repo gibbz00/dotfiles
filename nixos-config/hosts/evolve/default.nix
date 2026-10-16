@@ -43,7 +43,12 @@
   environment.etc.hosts.mode = "0644";
 
   # For gh jetbrains-idea, result of home-manager using global pkgs.
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "intellij-idea" ];
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "intellij-idea"
+      "claude-code"
+    ];
 
   # TODO: place this somewhere more appriopriate
   services.udev.extraRules = ''
